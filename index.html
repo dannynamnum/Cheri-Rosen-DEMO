@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cheri Rosen | Boca Raton & Boynton Beach Luxury Real Estate</title>
+<meta name="description" content="Cheri Rosen, Lang Realty. Luxury oceanfront, country clubs, and active 55+ communities across Boca Raton, Boynton Beach, and Palm Beach. Top producer in Southeast Florida." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* :ROOT — Option D: Coastal Linen */
+:root {
+  --cream: #F5F0E8;
+  --warm-white: #FAF7F2;
+  --dark: #2C3038;
+  --dark-soft: #4A5260;
+  --accent: #7DBFBE;
+  --accent-dark: #4A9190;
+  --accent-light: #C2DEDD;
+  --sand: #DDD8CE;
+  --text-muted: #6B6560;
+  --accent-rgb: 125, 191, 190;
+  --dark-rgb: 44, 48, 56;
+  --warm-white-rgb: 250, 247, 242;
+  --hero-overlay-tint: 8, 12, 18;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  color: var(--dark-soft);
+  background: var(--warm-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding-bottom: 56px;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* NAV */
+.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 50; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 24px; color: #fff; letter-spacing: 0.04em; white-space: nowrap; }
+.nav-logo span { color: var(--accent); font-style: italic; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { font-size: 12px; color: rgba(255,255,255,0.85); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; transition: color 0.3s; white-space: nowrap; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { background: var(--accent); color: var(--dark); padding: 10px 22px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; border-radius: 2px; transition: background 0.3s, transform 0.3s; white-space: nowrap; }
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+.nav-mobile-cta { display: none; }
+
+/* HERO */
+.hero { position: relative; height: 100vh; min-height: 640px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(var(--hero-overlay-tint), 0.55) 0%, rgba(var(--hero-overlay-tint), 0.68) 50%, rgba(var(--hero-overlay-tint), 0.93) 100%); z-index: 2; }
+.hero-content { position: relative; z-index: 3; text-align: center; padding: 0 24px; max-width: 900px; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 28px; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(48px, 7.2vw, 88px); line-height: 1.05; color: rgba(255,255,255,0.98); letter-spacing: -0.01em; margin-bottom: 44px; }
+.hero h1 em { font-style: italic; color: var(--accent-light); }
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--accent); color: var(--dark); padding: 16px 36px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; border-radius: 2px; transition: background 0.3s, transform 0.3s; }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: #fff; padding: 16px 36px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; transition: border-color 0.3s, background 0.3s; }
+.btn-secondary:hover { border-color: var(--accent); background: rgba(var(--accent-rgb), 0.1); }
+.scroll-indicator { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 3; color: rgba(255,255,255,0.6); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; font-weight: 400; animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+
+/* STATS */
+.stats { background: var(--dark); padding: 56px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; position: relative; }
+.stats::before, .stats::after { content: ''; position: absolute; top: 50%; width: 1px; height: 60%; background: rgba(var(--accent-rgb), 0.25); transform: translateY(-50%); }
+.stats::before { left: 33.33%; }
+.stats::after { left: 66.66%; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 56px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 400; }
+
+/* SECTIONS */
+section { padding: 96px 40px; }
+.section-inner { max-width: 1080px; margin: 0 auto; }
+.eyebrow { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; margin-bottom: 16px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(38px, 5vw, 62px); line-height: 1.1; color: var(--dark); letter-spacing: -0.01em; margin-bottom: 24px; }
+.section-title em { font-style: italic; color: var(--accent-dark); }
+.section-intro { font-size: 16px; color: var(--text-muted); max-width: 640px; line-height: 1.85; margin-bottom: 56px; }
+
+/* ABOUT */
+.about { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 72px; align-items: center; }
+.headshot-col { position: relative; }
+.headshot-wrap { position: relative; max-width: 420px; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 2px; box-shadow: 0 20px 60px rgba(var(--dark-rgb), 0.15); }
+.headshot-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.headshot-badge { position: absolute; bottom: -18px; left: -18px; background: var(--dark); color: #fff; padding: 18px 24px; max-width: 240px; }
+.headshot-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--accent); line-height: 1.1; }
+.headshot-badge .label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 6px; }
+.about-body p { font-size: 16px; color: var(--text-muted); line-height: 1.9; margin-bottom: 18px; }
+.about-body p:first-of-type::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--accent-dark); float: left; line-height: 0.9; margin: 4px 8px 0 0; }
+.certs { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+.cert-pill { background: var(--accent-light); color: var(--dark); padding: 8px 16px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; border-radius: 2px; border: 1px solid rgba(var(--accent-rgb), 0.4); }
+
+/* LISTINGS */
+.listings { background: var(--warm-white); }
+.listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.listing-card { position: relative; overflow: hidden; background: var(--cream); border-radius: 2px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.listing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(var(--dark-rgb), 0.12); }
+.listing-img { aspect-ratio: 4 / 3; overflow: hidden; }
+.listing-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.listing-card:hover .listing-img img { transform: scale(1.05); }
+.listing-info { padding: 24px; }
+.listing-price { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 26px; color: var(--dark); margin-bottom: 6px; }
+.listing-addr { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.listing-meta { display: flex; gap: 16px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; padding-top: 14px; border-top: 1px solid var(--sand); }
+
+/* SPECIALTIES / LIFESTYLE */
+.specialties { background: var(--cream); }
+.specialties-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.specialty-card { background: var(--warm-white); border-radius: 2px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.specialty-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(var(--dark-rgb), 0.12); }
+.specialty-img { aspect-ratio: 16 / 9; overflow: hidden; }
+.specialty-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.specialty-card:hover .specialty-img img { transform: scale(1.04); }
+.specialty-body { padding: 28px 30px 32px; }
+.specialty-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; margin-bottom: 10px; }
+.specialty-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 28px; color: var(--dark); line-height: 1.2; margin-bottom: 10px; }
+.specialty-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* TESTIMONIALS */
+.testimonials { background: var(--dark); color: rgba(255,255,255,0.92); padding: 96px 0; }
+.testimonials .section-inner { padding: 0 40px; max-width: 1280px; }
+.testimonials .eyebrow { color: var(--accent); }
+.testimonials .section-title { color: #fff; }
+.testimonials .section-title em { color: var(--accent-light); }
+.slider-wrap { position: relative; }
+.slider-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 8px 4px 32px; cursor: grab; }
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track.dragging { cursor: grabbing; }
+.testimonial-card { flex: 0 0 calc(85% - 20px); max-width: 720px; background: #fff; color: var(--dark-soft); padding: 48px 44px; border-radius: 2px; scroll-snap-align: start; }
+.testimonial-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 22px; line-height: 1.55; color: var(--dark); margin-bottom: 28px; }
+.testimonial-quote::before { content: '“'; font-size: 48px; color: var(--accent); line-height: 0; vertical-align: -12px; margin-right: 4px; }
+.testimonial-meta { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; }
+.slider-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; padding: 0 4px; }
+.slider-dots { display: flex; gap: 10px; }
+.slider-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s; }
+.slider-dot.active { background: var(--accent); }
+.slider-arrows { display: flex; gap: 12px; align-items: center; }
+.slider-counter { font-size: 12px; letter-spacing: 0.22em; color: rgba(255,255,255,0.6); margin-right: 16px; font-weight: 400; }
+.slider-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; transition: border-color 0.3s, background 0.3s; }
+.slider-arrow:hover { border-color: var(--accent); background: rgba(var(--accent-rgb), 0.15); }
+.slider-arrow svg { width: 16px; height: 16px; }
+
+/* CONTACT */
+.contact { background: var(--warm-white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 16px 20px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--dark); background: #fff; border: 1px solid var(--sand); border-radius: 2px; transition: border-color 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); }
+.contact-form textarea { margin-bottom: 16px; min-height: 140px; resize: vertical; }
+.contact-form .btn-primary { width: 100%; background: var(--dark); color: #fff; padding: 18px; font-size: 12px; letter-spacing: 0.22em; }
+.contact-form .btn-primary:hover { background: var(--dark-soft); }
+.contact-info { padding-top: 12px; }
+.contact-item { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 28px; }
+.contact-item-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--dark-soft); }
+.contact-item-icon svg { width: 18px; height: 18px; stroke-width: 1.75; stroke: currentColor; fill: none; }
+.contact-item > div:last-child { min-width: 0; flex: 1; }
+.contact-item .label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; margin-bottom: 4px; }
+.contact-item .val { font-size: 15px; color: var(--dark); font-weight: 400; overflow-wrap: break-word; word-break: break-word; }
+
+/* FOOTER */
+.footer { background: var(--dark); color: rgba(255,255,255,0.65); padding: 64px 40px 32px; text-align: center; }
+.footer-wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 32px; color: #fff; margin-bottom: 8px; letter-spacing: 0.04em; }
+.footer-wordmark em { color: var(--accent); font-style: italic; }
+.footer-tag { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 32px; }
+.footer-certs { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(var(--accent-rgb), 0.18); }
+.footer-cert { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 400; padding: 6px 14px; border: 1px solid rgba(var(--accent-rgb), 0.25); border-radius: 2px; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 600px; margin: 0 auto; }
+
+/* STICKY BAR */
+.sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark); color: #fff; padding: 12px 40px; display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 100; white-space: nowrap; box-shadow: 0 -8px 24px rgba(var(--dark-rgb), 0.2); }
+.sticky-bar-text { font-size: 13px; color: #fff; font-weight: 600; white-space: nowrap; }
+.sticky-bar-cta { background: var(--accent); color: var(--dark); padding: 10px 22px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; border-radius: 2px; transition: background 0.3s, transform 0.3s; white-space: nowrap; }
+.sticky-bar-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+/* POPUP */
+.popup-backdrop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(var(--dark-rgb), 0.6); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; }
+.popup-backdrop.active { display: flex; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.popup { background: var(--warm-white); max-width: 480px; width: 100%; border-radius: 2px; overflow: hidden; position: relative; animation: slideUp 0.4s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.popup-img { width: 100%; height: 200px; object-fit: cover; object-position: bottom; }
+.popup-body { padding: 32px 36px 36px; }
+.popup-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent-dark); font-weight: 500; margin-bottom: 12px; }
+.popup-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 32px; color: var(--dark); line-height: 1.15; margin-bottom: 12px; }
+.popup-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+.popup-form input { width: 100%; padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 14px; background: #fff; border: 1px solid var(--sand); border-radius: 2px; margin-bottom: 12px; }
+.popup-form input:focus { outline: none; border-color: var(--accent); }
+.popup-form button { width: 100%; background: var(--dark); color: #fff; padding: 14px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; border-radius: 2px; transition: background 0.3s; }
+.popup-form button:hover { background: var(--dark-soft); }
+.popup-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; background: rgba(var(--warm-white-rgb), 0.95); color: var(--dark); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 300; line-height: 1; }
+.popup-success { display: none; text-align: center; padding: 24px 0 0; }
+.popup-success.active { display: block; }
+.popup-success-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-light); color: var(--accent-dark); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: 0.1s; }
+.reveal.d2 { transition-delay: 0.2s; }
+.reveal.d3 { transition-delay: 0.3s; }
+
+/* RESPONSIVE — Tablet ≤960px */
+@media (max-width: 960px) {
+  .nav { padding: 18px 20px; gap: 12px; }
+  .nav-links { display: none; }
+  .nav-mobile-cta { display: inline-block; background: var(--accent); color: var(--dark); padding: 10px 14px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; border-radius: 2px; white-space: nowrap; }
+  .nav-logo { font-size: 18px; letter-spacing: 0.04em; white-space: nowrap; }
+  section { padding: 64px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .headshot-wrap { max-width: 100%; margin: 0 auto; }
+  .headshot-badge { position: static; max-width: 100%; margin-top: 16px; text-align: center; }
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+  .specialties-grid { grid-template-columns: 1fr; }
+  .testimonial-card { flex: 0 0 80%; padding: 36px 32px; }
+  .testimonial-quote { font-size: 18px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .stats { padding: 40px 20px; gap: 20px; }
+  .stat-num { font-size: 42px; }
+  .hero-content { padding: 0 20px 80px; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; padding: 14px 24px; }
+  .scroll-indicator { bottom: 20px; }
+}
+
+/* RESPONSIVE — Mobile ≤640px */
+@media (max-width: 640px) {
+  .stats { grid-template-columns: 1fr; }
+  .stats::before, .stats::after { display: none; }
+  .listings-grid { grid-template-columns: 1fr; }
+  .contact-form .form-row { grid-template-columns: 1fr; }
+  .footer { padding: 48px 20px 24px; }
+  .footer-certs { gap: 10px; }
+  .sticky-bar { padding: 10px 16px; gap: 12px; }
+  .sticky-bar-text { font-size: 12px; }
+  .sticky-bar-cta { padding: 8px 14px; font-size: 11px; letter-spacing: 0.1em; }
+  .contact-item .val { font-family: 'DM Sans', sans-serif; font-size: 14px; }
+}
+
+/* RESPONSIVE — Small mobile ≤380px */
+@media (max-width: 380px) {
+  .nav { padding: 16px 14px; gap: 8px; }
+  .nav-logo { font-size: 17px; }
+  .nav-mobile-cta { padding: 9px 12px; font-size: 10px; }
+  .sticky-bar { padding: 9px 12px; gap: 10px; }
+  .sticky-bar-text { font-size: 11px; }
+  .sticky-bar-cta { padding: 7px 12px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main navigation">
+  <a href="#" class="nav-logo">Cheri <span>Rosen</span></a>
+  <div class="nav-links" role="navigation">
+    <a href="#about">About</a>
+    <a href="#listings">Listings</a>
+    <a href="#specialties">Lifestyle</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <a href="tel:5612212233" class="nav-mobile-cta">(561) 221-2233</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Welcome">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+         poster="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80&fit=crop">
+    <source src="https://videos.pexels.com/video-files/10391109/10391109-hd_2560_1440_24fps.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Boca Raton · Boynton Beach · Highland Beach</div>
+    <h1 class="reveal d1">Your next chapter, <em>on the right block.</em></h1>
+    <div class="hero-ctas reveal d2">
+      <a href="#listings" class="btn-primary">View Listings</a>
+      <a href="#contact" class="btn-secondary">Talk to Cheri</a>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Career highlights">
+  <div class="reveal"><div class="stat-num">8+</div><div class="stat-label">Years in Boca Real Estate</div></div>
+  <div class="reveal d1"><div class="stat-num">Top Producer</div><div class="stat-label">Southeast Florida Recognition</div></div>
+  <div class="reveal d2"><div class="stat-num">100+</div><div class="stat-label">Communities Known Inside Out</div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="headshot-col reveal">
+        <div class="headshot-wrap">
+          <img src="https://images.marketleader.com/Logos/77/431277_normal.jpg"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=800&q=80&fit=crop';"
+               alt="Cheri Rosen, Lang Realty" />
+        </div>
+        <div class="headshot-badge">
+          <div class="num">Top Producer</div>
+          <div class="label">Southeast Florida</div>
+        </div>
+      </div>
+      <div class="about-body reveal d1">
+        <div class="eyebrow">About Cheri</div>
+        <h2 class="section-title">A trusted guide to <em>South Florida's</em> finest addresses.</h2>
+        <p>Cheri knows South Florida is one of the most amazing places in the world to live or vacation. Whether it's a condo on the beach, a single family residence in Boca Raton, a winter getaway in Palm Beach, or a country club estate in a golfing or yachting community, she tunes in to each of her clients' dreams while preserving an absolute commitment to meeting their individual needs.</p>
+        <p>A native of the Northeast, Cheri has maintained residences in New Jersey, Upstate New York, Maryland, and New York City — which means she's familiar with the transition from city or suburb to oceanfront buying, whether for a vacation or primary residence. That knowledge has greatly enhanced her ability to match clients with their dreams.</p>
+        <p>For sellers, Cheri takes full advantage of Lang Realty's marketing tools to ensure properties are broadly promoted on every major channel. For buyers, she analyzes the local market to find the perfect home at the right price.</p>
+        <div class="certs">
+          <span class="cert-pill">Lang Realty</span>
+          <span class="cert-pill">Luxury &amp; Oceanfront</span>
+          <span class="cert-pill">Country Clubs</span>
+          <span class="cert-pill">Active 55+</span>
+          <span class="cert-pill">Top Producer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section id="listings" class="listings">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Featured Listings</div>
+    <h2 class="section-title reveal d1">Currently <em>on the market.</em></h2>
+    <p class="section-intro reveal d2">A curated selection of properties across Boca Raton, Boynton Beach, and the surrounding country club communities.</p>
+    <div class="listings-grid">
+      <article class="listing-card reveal">
+        <div class="listing-img">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&fit=crop"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80&fit=crop';"
+               alt="Boca Raton single-family home" />
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">$1,325,000</div>
+          <div class="listing-addr">6729 S Grande Drive<br />Boca Raton, FL 33433</div>
+          <div class="listing-meta"><span>5 Bed</span><span>3.1 Bath</span><span>3,231 SF</span></div>
+        </div>
+      </article>
+      <article class="listing-card reveal d1">
+        <div class="listing-img">
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80&fit=crop"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&fit=crop';"
+               alt="Boynton Beach lakefront home" />
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">$900,000</div>
+          <div class="listing-addr">10139 Isle Wynd Court<br />Boynton Beach, FL 33473</div>
+          <div class="listing-meta"><span>3 Bed</span><span>2 Bath</span><span>2,223 SF</span></div>
+        </div>
+      </article>
+      <article class="listing-card reveal d2">
+        <div class="listing-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&fit=crop';"
+               alt="Boca Bridges new construction" />
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">$2,150,000</div>
+          <div class="listing-addr">Boca Bridges<br />Boca Raton, FL 33496</div>
+          <div class="listing-meta"><span>5 Bed</span><span>4.5 Bath</span><span>4,800 SF</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section id="specialties" class="specialties">
+  <div class="section-inner">
+    <div class="eyebrow reveal">The Lifestyle</div>
+    <h2 class="section-title reveal d1">South Florida <em>living.</em></h2>
+    <p class="section-intro reveal d2">From sunny patios in downtown Boca to evenings by the pool — the rhythms of life across Boca Raton, Boynton Beach, and the surrounding communities.</p>
+    <div class="specialties-grid">
+
+      <!-- Tile 1: Boca Lifestyle (shopping/dining) -->
+      <div class="specialty-card reveal">
+        <div class="specialty-img">
+          <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?w=800&q=80&fit=crop"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&fit=crop'};"
+               alt="Outdoor dining at a Mediterranean restaurant in Boca Raton" />
+        </div>
+        <div class="specialty-body">
+          <div class="specialty-eyebrow">Downtown Boca</div>
+          <div class="specialty-title">The Boca Lifestyle</div>
+          <p class="specialty-desc">Lunch on a sunny patio at Mizner Park, an afternoon along Worth Avenue, dinner at Royal Palm Place — every weekend a different walk, every restaurant a few minutes from home.</p>
+        </div>
+      </div>
+
+      <!-- Tile 2: Country Club Lifestyle (resort pool with people) -->
+      <div class="specialty-card reveal d1">
+        <div class="specialty-img">
+          <img src="https://images.pexels.com/photos/31789278/pexels-photo-31789278.jpeg?auto=compress&cs=tinysrgb&w=1200"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80&fit=crop';"
+               alt="Resort-style pool with sunglasses and striped towel" />
+        </div>
+        <div class="specialty-body">
+          <div class="specialty-eyebrow">Private Communities</div>
+          <div class="specialty-title">Country Club Lifestyle</div>
+          <p class="specialty-desc">Tee time at eight, the pool by noon, dinner with friends at the clubhouse. The rhythm of private community living in South Palm Beach County.</p>
+        </div>
+      </div>
+
+      <!-- Tile 3: New Construction (FL luxury home with pool) -->
+      <div class="specialty-card reveal d2">
+        <div class="specialty-img">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&fit=crop"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&fit=crop'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80&fit=crop'};"
+               alt="Luxury Florida home with pool" />
+        </div>
+        <div class="specialty-body">
+          <div class="specialty-eyebrow">Brand New Builds</div>
+          <div class="specialty-title">New Construction</div>
+          <p class="specialty-desc">Boca Bridges, Akoya, Alina — the most coveted new developments in East Boca, designed for the way Florida lives now.</p>
+        </div>
+      </div>
+
+      <!-- Tile 4: Resort-Style 55+ (pickleball) -->
+      <div class="specialty-card reveal d3">
+        <div class="specialty-img">
+          <img src="https://images.pexels.com/photos/30864598/pexels-photo-30864598.jpeg?auto=compress&cs=tinysrgb&w=1200"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80&fit=crop';"
+               alt="Pickleball player on outdoor court" />
+        </div>
+        <div class="specialty-body">
+          <div class="specialty-eyebrow">Resort Lifestyle</div>
+          <div class="specialty-title">Resort-Style 55+</div>
+          <p class="specialty-desc">Pickleball courts, resort pools, and social calendars that fill themselves. The Valencia lifestyle and the gated active-adult communities west of Boca and Boynton.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Client Stories</div>
+    <h2 class="section-title reveal d1">What clients say about <em>working with Cheri.</em></h2>
+    <p class="section-intro reveal d2" style="color: rgba(255,255,255,0.7);">Drag or tap to read more.</p>
+
+    <div class="slider-wrap reveal d3">
+      <div class="slider-track" id="sliderTrack" role="list">
+        <article class="testimonial-card" role="listitem">
+          <p class="testimonial-quote">My husband and I were thinking about making the move from a vacation home in Miami Beach to a permanent home in Boca Raton. Cheri spent tons of time patiently showing us the different communities in person and online. It took over a year to locate the perfect new home, but Cheri led us to it.</p>
+          <div class="testimonial-meta">Permanent Move · Boca Raton</div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <p class="testimonial-quote">After our last child left for college, my husband and I decided to move to the beach. A friend recommended Cheri Rosen. That was our lucky day! Not only did Cheri get us a great price on the sale of our home, she found us the condo of our dreams — and it cost less than our profit from the sale.</p>
+          <div class="testimonial-meta">Empty Nesters · Coastal Move</div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <p class="testimonial-quote">I have bought and sold with many real estate agents all over the country. I wish that I had a Cheri Rosen in every state.</p>
+          <div class="testimonial-meta">Repeat Client</div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <p class="testimonial-quote">Cheri found me my place on the ocean. It was in perfect condition and she made sure the price was just right. It was such a great deal that in the four years I've owned it, comparable properties are now selling for double what I paid.</p>
+          <div class="testimonial-meta">Oceanfront Buyer</div>
+        </article>
+        <article class="testimonial-card" role="listitem">
+          <p class="testimonial-quote">When my wife was searching for a place in South Florida, she came across Cheri's listings. What a happy discovery that was. Cheri helped us find just what we were hoping to buy. She was a cheerful and knowledgeable expert in all things South Palm Beach.</p>
+          <div class="testimonial-meta">Canadian Buyers · Palm Beach</div>
+        </article>
+      </div>
+      <div class="slider-controls">
+        <div class="slider-dots" id="sliderDots" role="tablist"></div>
+        <div class="slider-arrows">
+          <div class="slider-counter" id="sliderCounter">1 / 5</div>
+          <button class="slider-arrow" id="prevBtn" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="slider-arrow" id="nextBtn" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Let's Talk</div>
+        <h2 class="section-title">Start with a <em>conversation.</em></h2>
+        <p class="section-intro">Buying, selling, or just curious about a particular community — Cheri responds personally to every message.</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — Cheri will be in touch shortly.'); this.reset();">
+          <div class="form-row">
+            <input type="text" placeholder="First name" aria-label="First name" required />
+            <input type="text" placeholder="Last name" aria-label="Last name" required />
+          </div>
+          <div class="form-row">
+            <input type="email" placeholder="Email" aria-label="Email" required />
+            <input type="tel" placeholder="Phone" aria-label="Phone" />
+          </div>
+          <textarea placeholder="Tell me a bit about what you're looking for..." aria-label="Message" required></textarea>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info reveal d1">
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+          <div><div class="label">Phone</div><div class="val">(561) 221-2233</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+          <div><div class="label">Email</div><div class="val">cherifrosen@gmail.com</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <div><div class="label">Office</div><div class="val">Lang Realty<br />4400 N. Federal Highway<br />Boca Raton, FL 33483</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <div><div class="label">Service Area</div><div class="val">Boca Raton · Boynton Beach · Highland Beach · Palm Beach</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wordmark">Cheri <em>Rosen</em></div>
+  <div class="footer-tag">Lang Realty · Southeast Florida</div>
+  <div class="footer-certs">
+    <span class="footer-cert">REALTOR®</span>
+    <span class="footer-cert">Lang Realty</span>
+    <span class="footer-cert">Beaches MLS</span>
+    <span class="footer-cert">Top Producer</span>
+  </div>
+  <p class="footer-disclaimer">© 2026 Cheri Rosen, Lang Realty. All listings featuring the BMLS logo are provided by Beaches MLS, Inc. Information is deemed reliable but not guaranteed. Equal Housing Opportunity.</p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <span class="sticky-bar-text">Talk to Cheri.</span>
+  <a href="tel:5612212233" class="sticky-bar-cta">(561) 221-2233</a>
+</div>
+
+<!-- POPUP -->
+<div class="popup-backdrop" id="popup" role="dialog" aria-labelledby="popupTitle">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Close">×</button>
+    <img class="popup-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80&fit=crop&crop=bottom"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&fit=crop';"
+         alt="Luxury Boca Raton home" />
+    <div class="popup-body">
+      <div id="popupForm">
+        <div class="popup-eyebrow">Just Listed</div>
+        <h3 class="popup-title" id="popupTitle">Get new listings before they hit the market.</h3>
+        <p class="popup-desc">A quiet weekly email with off-market properties, new builds, and country-club opportunities — sent only to Cheri's list.</p>
+        <form class="popup-form" onsubmit="event.preventDefault(); document.getElementById('popupForm').style.display='none'; document.getElementById('popupSuccess').classList.add('active'); setTimeout(closePopup, 3000);">
+          <input type="email" placeholder="Your email" aria-label="Email" required />
+          <button type="submit">Join the List</button>
+        </form>
+      </div>
+      <div class="popup-success" id="popupSuccess">
+        <div class="popup-success-icon">✓</div>
+        <div class="popup-title" style="font-size: 24px;">You're in.</div>
+        <p class="popup-desc" style="margin-top: 8px;">Look out for an email from Cheri soon.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const track = document.getElementById('sliderTrack');
+const cards = track.querySelectorAll('.testimonial-card');
+const dotsWrap = document.getElementById('sliderDots');
+const counter = document.getElementById('sliderCounter');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let currentIdx = 0;
+
+cards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('role', 'tab');
+  dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+  dot.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(dot);
+});
+
+function updateUI(idx) {
+  currentIdx = idx;
+  counter.textContent = `${idx + 1} / ${cards.length}`;
+  dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) => { d.classList.toggle('active', i === idx); });
+}
+function goTo(idx) {
+  const card = cards[idx];
+  track.scrollTo({ left: card.offsetLeft - 4, behavior: 'smooth' });
+  updateUI(idx);
+}
+prevBtn.addEventListener('click', () => goTo(Math.max(0, currentIdx - 1)));
+nextBtn.addEventListener('click', () => goTo(Math.min(cards.length - 1, currentIdx + 1)));
+
+let scrollTimer;
+track.addEventListener('scroll', () => {
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(() => {
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft - track.scrollLeft - 4);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    updateUI(closest);
+  }, 80);
+});
+
+let isDown = false, startX, scrollLeft;
+track.addEventListener('mousedown', e => {
+  isDown = true; track.classList.add('dragging');
+  startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+});
+track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+track.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - track.offsetLeft;
+  track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+});
+
+const popup = document.getElementById('popup');
+const popupClose = document.getElementById('popupClose');
+const POPUP_KEY = 'cr_popup_dismissed';
+
+function openPopup() {
+  if (sessionStorage.getItem(POPUP_KEY)) return;
+  popup.classList.add('active');
+}
+function closePopup() {
+  popup.classList.remove('active');
+  sessionStorage.setItem(POPUP_KEY, '1');
+}
+setTimeout(openPopup, 4000);
+popupClose.addEventListener('click', closePopup);
+popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+</script>
+</body>
+</html>
