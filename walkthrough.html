@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cheri Rosen — A Personal Walkthrough</title>
+<meta name="description" content="A personal walkthrough for Cheri Rosen of a custom-built demo site." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ====================================================================
+   :ROOT — Option D: Coastal Linen (palette parity with index.html)
+==================================================================== */
+:root {
+  --cream: #F5F0E8;
+  --warm-white: #FAF7F2;
+  --dark: #2C3038;
+  --dark-soft: #4A5260;
+  --accent: #7DBFBE;
+  --accent-dark: #4A9190;
+  --accent-light: #C2DEDD;
+  --sand: #DDD8CE;
+  --text-muted: #6B6560;
+  --accent-rgb: 125, 191, 190;
+  --dark-rgb: 44, 48, 56;
+  --warm-white-rgb: 250, 247, 242;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  color: var(--dark-soft);
+  background: var(--warm-white);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 64px; /* match sticky bar height */
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ====================================================================
+   PAGE COLUMN — single-column, centered, mobile-first
+==================================================================== */
+.page {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+
+/* ====================================================================
+   WORDMARK — prospect name, links to demo root
+==================================================================== */
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: var(--dark);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.wordmark em {
+  font-style: italic;
+  color: var(--accent-dark);
+}
+
+/* ====================================================================
+   EYEBROW — small uppercase, accent color
+==================================================================== */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* ====================================================================
+   VIDEO — Loom embed, 360px max-width desktop, full-width mobile
+   padding-bottom = exact Loom snippet value (217.4129353233831%)
+==================================================================== */
+.video-wrap {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+.video-aspect {
+  position: relative;
+  padding-bottom: 217.4129353233831%;
+  height: 0;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.video-aspect iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* ====================================================================
+   BELOW-FOLD ACTIONS — primary button + text link
+==================================================================== */
+.actions {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.btn-demo {
+  background: var(--dark);
+  color: #fff;
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.btn-demo:hover { background: var(--dark-soft); transform: translateY(-1px); }
+.text-link {
+  font-size: 13px;
+  color: var(--dark-soft);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(var(--dark-rgb), 0.25);
+  font-weight: 400;
+  transition: color 0.3s;
+}
+.text-link:hover { color: var(--accent-dark); }
+
+/* ====================================================================
+   FOOTER — subtle attribution
+==================================================================== */
+.footer-attr {
+  margin-top: 36px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(var(--dark-rgb), 0.45);
+  font-weight: 400;
+}
+
+/* ====================================================================
+   STICKY CTA BAR — Danny's brand, off-white background
+==================================================================== */
+.sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #F0EDE8;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  height: 64px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sticky-cta-inner {
+  max-width: 480px;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.sticky-cta-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #3A3530;
+  white-space: nowrap;
+}
+.sticky-cta-btn {
+  background: #151821;
+  color: #F0EDE8;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 11px 24px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.sticky-cta-btn:hover { background: #2C2A33; transform: translateY(-1px); }
+.sticky-cta-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+.sticky-cta-btn:hover .arrow { transform: translateX(3px); }
+
+/* ====================================================================
+   RESPONSIVE
+==================================================================== */
+@media (max-width: 640px) {
+  body { padding-bottom: 60px; }
+  .page { padding: 24px 20px 20px; }
+  .wordmark { font-size: 26px; margin-bottom: 18px; }
+  .video-wrap { max-width: 100%; }
+  .sticky-cta { height: 60px; }
+  .sticky-cta-inner { padding: 0 20px; gap: 16px; }
+  .sticky-cta-label { font-size: 12px; }
+  .sticky-cta-btn { padding: 10px 20px; font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .sticky-cta-inner { padding: 0 14px; gap: 12px; }
+  .sticky-cta-label { font-size: 11px; }
+  .sticky-cta-btn { padding: 9px 16px; font-size: 11px; letter-spacing: 0.04em; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE ============================ -->
+<main class="page">
+
+  <!-- Wordmark — prospect name, links to demo root -->
+  <a href="https://cheri-rosen-demo.vercel.app/" class="wordmark">Cheri <em>Rosen</em></a>
+
+  <!-- Eyebrow -->
+  <div class="eyebrow">A personal walkthrough</div>
+
+  <!-- Video — Loom embed with all chrome-stripping params -->
+  <div class="video-wrap">
+    <div class="video-aspect">
+      <iframe src="https://www.loom.com/embed/6d41ca73eae7428ea4d677ecfad684a9?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&hideLogo=true"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Below-fold actions -->
+  <div class="actions">
+    <a href="https://cheri-rosen-demo.vercel.app/" class="btn-demo">View Your Demo</a>
+    <a href="https://namnumdesign.co" class="text-link" target="_blank" rel="noopener">How this works</a>
+  </div>
+
+  <!-- Subtle attribution -->
+  <div class="footer-attr">Built by Namnum Design Co</div>
+
+</main>
+
+<!-- ============================ STICKY CTA BAR ============================ -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <span class="sticky-cta-label">Like what you see?</span>
+    <a href="https://fantastical.app/Namnum/Intro-conversation" class="sticky-cta-btn" target="_blank" rel="noopener">Let's Talk <span class="arrow">→</span></a>
+  </div>
+</div>
+
+</body>
+</html>
